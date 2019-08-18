@@ -3,6 +3,7 @@ package it.frigir.sfgpetclinic.controllers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
@@ -50,5 +51,41 @@ class IndexControllerTest {
     @Test
     void testAssumptionTrueisFalse() {
         assumeTrue("GURU".equalsIgnoreCase("GURU2"));
+    }
+
+    @Test
+    @EnabledOnOs(OS.MAC)
+    void testOnMac(){
+
+    }
+
+    @Test
+    @EnabledOnOs(OS.LINUX)
+    void testOnLinux(){
+
+    }
+
+    @Test
+    @EnabledOnJre(JRE.JAVA_8)
+    void testOnJava8(){
+
+    }
+
+    @Test
+    @EnabledOnJre(JRE.JAVA_12)
+    void testOnJava12(){
+
+    }
+
+    @Test
+    @EnabledIfEnvironmentVariable(named = "USER",matches = "frigir")
+    void testOnUserFrigir(){
+
+    }
+
+    @Test
+    @EnabledIfEnvironmentVariable(named = "USER",matches = "gg")
+    void testOnUserGG(){
+
     }
 }
