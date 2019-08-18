@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class IndexControllerTest {
 
@@ -39,5 +40,15 @@ class IndexControllerTest {
     void testTimeoutPrempt() {
         assertTimeout(Duration.ofMillis(200), () -> Thread.sleep(100));
         System.out.println("sadsadsda");
+    }
+
+    @Test
+    void testAssumptionTrueIsTrue() {
+        assumeTrue("GURU".equalsIgnoreCase("GURU"));
+    }
+
+    @Test
+    void testAssumptionTrueisFalse() {
+        assumeTrue("GURU".equalsIgnoreCase("GURU2"));
     }
 }
