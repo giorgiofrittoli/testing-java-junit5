@@ -7,6 +7,7 @@ import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -24,6 +25,8 @@ class IndexControllerTest {
     void index() {
         assertEquals("index", indexController.index(), "dsadsasda");
         assertEquals("index", indexController.index(), () -> "dsasdasdasda" + "sadsadsad");
+
+        assertThat(indexController.index()).isEqualTo("index");
     }
 
     @Test
