@@ -1,5 +1,6 @@
 package it.frigir.sfgpetclinic.model;
 
+import it.frigir.sfgpetclinic.CustomArgsProvider;
 import it.frigir.sfgpetclinic.ModelTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -79,5 +80,12 @@ class OwnerTest implements ModelTest {
                 Arguments.of("OH", 1, 1),
                 Arguments.arguments("MI", 6, 7)
         );
+    }
+
+    @DisplayName("custom provider source")
+    @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
+    @ArgumentsSource(CustomArgsProvider.class)
+    void testCustomProviderSource(String stateName, int val1, int val2) {
+        System.out.println(stateName + " " + val1 + " " + val2);
     }
 }
