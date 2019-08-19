@@ -4,6 +4,8 @@ import it.frigir.sfgpetclinic.ModelTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -41,10 +43,28 @@ class OwnerTest implements ModelTest {
         System.out.println(val);
     }
 
-    @DisplayName("value source")
+    @DisplayName("enum source")
     @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
     @EnumSource(OwnerType.class)
     void testEnumSource(OwnerType ownerType) {
         System.out.println(ownerType);
+    }
+
+    @DisplayName("csv source")
+    @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
+    @CsvSource({
+            "FL,1,1",
+            "OH,2,2",
+            "MI,3,3"
+    })
+    void testCsvSource(String stateName, String val1, String val2) {
+        System.out.println(stateName + " " + val1 + " " + val2);
+    }
+
+    @DisplayName("csv file source")
+    @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
+    @CsvFileSource(resources = "/input.csv",numLinesToSkip = 1)
+    void testCsvFileSource(String stateName, String val1, String val2) {
+        System.out.println(stateName + " " + val1 + " " + val2);
     }
 }
