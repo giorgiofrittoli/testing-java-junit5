@@ -1,5 +1,6 @@
 package it.frigir.sfgpetclinic.controllers;
 
+import it.frigir.sfgpetclinic.ControllerTest;
 import it.frigir.sfgpetclinic.fauxspring.Model;
 import it.frigir.sfgpetclinic.fauxspring.ModelImpl;
 import it.frigir.sfgpetclinic.model.Vet;
@@ -7,17 +8,14 @@ import it.frigir.sfgpetclinic.services.VetService;
 import it.frigir.sfgpetclinic.services.map.SpecialityMapService;
 import it.frigir.sfgpetclinic.services.map.VetMapService;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Tag("controller")
-class VetControllerTest {
+class VetControllerTest implements ControllerTest {
 
     VetController vetController;
     VetService vetService;

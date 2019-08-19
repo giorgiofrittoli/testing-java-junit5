@@ -1,14 +1,13 @@
 package it.frigir.sfgpetclinic.model;
 
-import org.junit.jupiter.api.Tag;
+import it.frigir.sfgpetclinic.ModelTest;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Tag("model")
-class OwnerTest {
+class OwnerTest implements ModelTest {
 
     @Test
     void dependentAssertions() {

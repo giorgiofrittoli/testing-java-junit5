@@ -1,5 +1,7 @@
 package it.frigir.sfgpetclinic.fauxspring;
 
+import it.frigir.sfgpetclinic.fauxspring.Model;
+
 import java.util.HashMap;
 
 public class ModelImpl implements Model {
