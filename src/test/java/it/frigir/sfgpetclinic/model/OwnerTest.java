@@ -1,7 +1,10 @@
 package it.frigir.sfgpetclinic.model;
 
 import it.frigir.sfgpetclinic.ModelTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -30,4 +33,10 @@ class OwnerTest implements ModelTest {
 
     }
 
+    @DisplayName("value source")
+    @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
+    @ValueSource(strings = {"Spring","dsadsadsa"})
+    void testValueSource(String val) {
+        System.out.println(val);
+    }
 }
