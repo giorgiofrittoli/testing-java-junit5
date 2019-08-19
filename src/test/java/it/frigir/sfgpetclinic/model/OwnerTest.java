@@ -4,10 +4,9 @@ import it.frigir.sfgpetclinic.ModelTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.EnumSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
+
+import java.util.stream.Stream;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -63,8 +62,22 @@ class OwnerTest implements ModelTest {
 
     @DisplayName("csv file source")
     @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
-    @CsvFileSource(resources = "/input.csv",numLinesToSkip = 1)
+    @CsvFileSource(resources = "/input.csv", numLinesToSkip = 1)
     void testCsvFileSource(String stateName, String val1, String val2) {
         System.out.println(stateName + " " + val1 + " " + val2);
+    }
+
+    @DisplayName("method source")
+    @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
+    @MethodSource("getArgs")
+    void testMethodeSource(String stateName, int val1, int val2) {
+        System.out.println(stateName + " " + val1 + " " + val2);
+    }
+
+    static Stream<Arguments> getArgs() {
+        return Stream.of(Arguments.arguments("FL", 1, 1),
+                Arguments.of("OH", 1, 1),
+                Arguments.arguments("MI", 6, 7)
+        );
     }
 }
