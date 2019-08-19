@@ -19,7 +19,7 @@ class PersonTest {
     }
 
     @Test
-    @RepeatedTest(value = 10, name = "{displayname} : {currentRepetition} - {totalRepetitions}")
+    @RepeatedTest(value = 10, name = "{displayName} : {currentRepetition} - {totalRepetitions}")
     @DisplayName("my repeated test")
     void myReapetedTest() {
 
